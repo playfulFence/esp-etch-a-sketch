@@ -1,4 +1,4 @@
-# esp-rolling-stones :crab:
+# esp-etch-a-sketch :crab:
 Wokwi-example how to create a simple `Etch-a-Sketch` game with joystick and `8x8 LED Dot Matrix Display` (check [this example](https://github.com/playfulFence/esp-rolling-stone) also) is initialised for ESP32
 
 ## Instructions
