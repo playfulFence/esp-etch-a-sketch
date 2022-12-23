@@ -1,0 +1,47 @@
+{
+  "version": 1,
+  "author": "Kirill Mikhailov (playfulFence)",
+  "editor": "wokwi",
+  "parts": [
+    {
+      "type": "wokwi-esp32-devkit-v1",
+      "id": "esp",
+      "top": -128.8,
+      "left": 53.1,
+      "attrs": { "builder": "rust-nostd-esp" }
+    },
+    {
+      "type": "wokwi-max7219-matrix",
+      "id": "matrix1",
+      "top": -252.3,
+      "left": -183.3,
+      "attrs": { "chain": "7", "layout": "fc16" }
+    },
+    {
+      "type": "wokwi-analog-joystick",
+      "id": "joystick1",
+      "top": 104.67,
+      "left": 51.05,
+      "attrs": {}
+    }
+  ],
+  "connections": [
+    [ "esp:TX0", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX0", "$serialMonitor:TX", "", [] ],
+    [ "esp:3V3", "matrix1:V+", "green", [ "v1.97", "h269.06", "v-245.91" ] ],
+    [ "esp:GND.1", "matrix1:GND", "black", [ "h258.56", "v-224.84" ] ],
+    [ "esp:D23", "matrix1:DIN", "white", [ "h245.06", "v-90.24" ] ],
+    [ "esp:D15", "matrix1:CS", "blue", [ "h233.81", "v-196.14" ] ],
+    [ "esp:D18", "matrix1:CLK", "white", [ "h223.31", "v-128.74" ] ],
+    [
+      "esp:3V3",
+      "joystick1:VCC",
+      "green",
+      [ "h11.31", "v23.88", "h82.66", "v29.56", "h0.96", "v189.52", "h-165.28" ]
+    ],
+    [ "joystick1:GND", "esp:GND.2", "black", [ "v40.14", "h-116.78", "v-240.06" ] ],
+    [ "esp:D21", "joystick1:SEL", "magenta", [ "h119.97", "v315.56", "h-161.72" ] ],
+    [ "esp:D2", "joystick1:HORZ", "violet", [ "h44.16", "v297.93", "h-91.81" ] ],
+    [ "joystick1:VERT", "esp:D4", "yellow", [ "v42.84", "h123.44", "v-277.12" ] ]
+  ]
+}
